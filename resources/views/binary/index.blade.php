@@ -34,11 +34,11 @@
 		<!-- Container -->
 		<div class="container">
 			<div class="section-header">
-				<h3>Reasons To Choose Us</h3>				
+				<h3>Reasons To Choose Us</h3>                
 			</div>
 			<!-- Choose Carousel -->
-			<div class="choose-carousel">			
-				<div class="col-md-12">
+			<div class="row justify-content-between"> <!-- Add Bootstrap row class and justify-content-between -->
+				<div class="col-md-4"> <!-- Use col-md-4 to fit three columns in a row on medium screens -->
 					<div class="choose-us-box">
 						<div class="choose-img-box"><img src="{{ asset('helps/images/choose-us/choose-us-1.jpg')}}" alt="choose-us-1"/></div>
 						<div class="choose-us-content-box">
@@ -48,7 +48,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12">
+				<div class="col-md-4"> <!-- Use col-md-4 to fit three columns in a row on medium screens -->
 					<div class="choose-us-box">
 						<div class="choose-img-box"><img src="{{ asset('helps/images/choose-us/choose-us-2.jpg')}}" alt="choose-us-2"/></div>
 						<div class="choose-us-content-box">
@@ -58,7 +58,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-12">
+				<div class="col-md-4"> <!-- Use col-md-4 to fit three columns in a row on medium screens -->
 					<div class="choose-us-box">
 						<div class="choose-img-box"><img src="{{ asset('helps/images/choose-us/choose-us-3.jpg')}}" alt="choose-us-3"/></div>
 						<div class="choose-us-content-box">
@@ -71,7 +71,8 @@
 			</div><!-- Choose Carousel/- -->
 		</div><!-- Container/- -->
 		<div class="section-padding"></div>
-	</div><!-- Choose Us/- -->
+	</div>
+	<!-- Choose Us/- -->
 	
 <!-- Book Details -->
 <div class="container-fluid no-padding book-details">
@@ -178,80 +179,88 @@
             <h3>Drivers On Your Service</h3>                
         </div>
         <!-- Members Carousel -->
-        <div class="member-carousel">
-            <div id="member">
-                <div class="member-item">
-                    <img src="{{ asset('helps/images/members/member-1.jpg')}}" alt="member-1"/>
-                    <div class="driver-info">
-                        <div class="driver">
-                            <h3>William Turner<span>Limousine Driver</span></h3>
-                        </div>
-                        <p>Skill Level: Senior
-                            <span>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </span>    
-                        </p>
-                    </div>
-                </div>
-                <div class="member-item">
-                    <img src="{{ asset('helps/images/members/member-2.jpg')}}" alt="member-2"/>
-                    <div class="driver-info">
-                        <div class="driver">
-                            <h3>Johny Roges<span>Sedan Driver</span></h3>
-                        </div>
-                        <p>Skill Level: Senior
-                            <span>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </span>    
-                        </p>                        
-                    </div>
-                </div>
-                <div class="member-item">
-                    <img src="{{ asset('helps/images/members/member-3.jpg')}}" alt="member-3"/>
-                    <div class="driver-info">
-                        <div class="driver">
-                            <h3>Altrin Mosea<span>SUV Driver</span></h3>
-                        </div>
-                        <p>Skill Level: Expert
-                            <span>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </span>    
-                        </p>
-                    </div>
-                </div>
-                <div class="member-item">
-                    <img src="{{ asset('helps/images/members/member-4.jpg')}}" alt="member-4"/>
-                    <div class="driver-info">
-                        <div class="driver">
-                            <h3>Luther King<span>Sedan Driver</span></h3>
-                        </div>
-                        <p>Skill Level: Starter
-                            <span>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-half-o"></i>
-                                <i class="fa fa-star-half-o"></i>
-                                <i class="fa fa-star-half-o"></i>
-                            </span>    
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div><!-- Members Carousel/- -->
-        <div class="section-padding"></div>
-    </div>
+		<div class="member-carousel">
+			<div class="row justify-content-between">
+				<div class="col-md-3">
+					<div class="member-item">
+						<img src="{{ asset('helps/images/members/member-1.jpg')}}" alt="member-1"/>
+						<div class="driver-info">
+							<div class="driver">
+								<h3>William Turner<span>Limousine Driver</span></h3>
+							</div>
+							<p>Skill Level: Senior
+								<span>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-half-o"></i>
+									<i class="fa fa-star-half-o"></i>
+								</span>    
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="member-item">
+						<img src="{{ asset('helps/images/members/member-2.jpg')}}" alt="member-2"/>
+						<div class="driver-info">
+							<div class="driver">
+								<h3>Johny Roges<span>Sedan Driver</span></h3>
+							</div>
+							<p>Skill Level: Senior
+								<span>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-half-o"></i>
+								</span>    
+							</p>                        
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="member-item">
+						<img src="{{ asset('helps/images/members/member-3.jpg')}}" alt="member-3"/>
+						<div class="driver-info">
+							<div class="driver">
+								<h3>Altrin Mosea<span>SUV Driver</span></h3>
+							</div>
+							<p>Skill Level: Expert
+								<span>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+								</span>    
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="member-item">
+						<img src="{{ asset('helps/images/members/member-4.jpg')}}" alt="member-4"/>
+						<div class="driver-info">
+							<div class="driver">
+								<h3>Luther King<span>Sedan Driver</span></h3>
+							</div>
+							<p>Skill Level: Starter
+								<span>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-half-o"></i>
+									<i class="fa fa-star-half-o"></i>
+									<i class="fa fa-star-half-o"></i>
+								</span>    
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- Members Carousel/- -->
+		<div class="section-padding"></div>
+		
   		
 
 

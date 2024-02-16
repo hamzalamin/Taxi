@@ -60,14 +60,83 @@
 
 	
 		<script src="{{ asset('helps/js/html5/respond.min.js') }}"></script>
+		<style>
+			.ticket {
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			padding: 20px;
+			margin-bottom: 20px;
+		}
+		
+		.ticket-info {
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.info-row {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 10px;
+		}
+		
+		.info-label {
+			font-weight: bold;
+		}
+		
+		.info-value {
+			flex: 1;
+			margin-left: 10px;
+		}
+		
+			.card {
+		max-width: 20rem;
+		background: #fff;
+		margin: 0 1rem;
+		padding: 1rem;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+		width: 100%;
+		border-radius: 0.5rem;
+		}
+		
+		.star {
+		font-size: 5vh;
+		cursor: pointer;
+		}
+		
+		.one {
+		color: rgb(255, 0, 0);
+		}
+		
+		.two {
+		color: rgb(255, 106, 0);
+		}
+		
+		.three {
+		
+		color: rgb(149, 228, 12);
+		
+		}
+		
+		.four {
+		color: rgb(105, 187, 12);
+		}
+		
+		.five {
+		color: rgb(24, 159, 14);
+		}
+		
+		
+		.disabled{
+		
+		padding: 8px 20px ;
+		/* margin: 4px; */
+		
+		}
+		
+		</style>
 
 </head>
-
-<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
-
-	
-	<a id="top"></a>
-
 	<header class="header-main">
 		
 		<nav class="navbar ow-navigation">
@@ -91,110 +160,35 @@
 						<li class="">
 							<a href="{{ route('homePage') }}" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
 						</li>
+						
 						<li><a href="{{ route('searchPage') }}">About Us</a></li>
-						<li><a href="service.html">Our Services</a></li>
+
+						<li><a href="{{ route('binary.ticket') }}">Hestorique</a></li>
+
+				
+						
 						<li class="dropdown">
-							<a href="#blog" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-							<i class="ddl-switch fa fa-angle-down"></i>
-							<ul class="dropdown-menu">
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="single-blog.html">Single Blog</a></li>
+							@if (Route::has('login'))
+								<div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+									@auth
+									<li><a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 dropdown-toggle">Dashboard</a></li>
+									@else
+									<li><a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 dropdown-toggle">Log in</a></li>
+									
+									@if (Route::has('register'))
+									<li><a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 dropdown-toggle">Register</a></li>
+									@endif
+									@endauth
+								</div>
+							@endif
+
 							</ul>
 						</li>
-						<li class="dropdown">								
-							<a href="#faq" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Faq</a>
-							<i class="ddl-switch fa fa-angle-down"></i>
-							<ul class="dropdown-menu">
-								<li><a href="faq.html">Faq - Default</a></li>
-								<li><a href="faq-1.html">Faq - Accordion</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-							<i class="ddl-switch fa fa-angle-down"></i>
-							<ul class="dropdown-menu">
-								<li><a href="online-booking.html">Online Booking</a></li>
-								<li><a href="error.html">404 - Error</a></li>
-							</ul>
-						</li>
-						<li><a href="contact-us.html">Contact US</a></li>							
 					</ul>						
 				</div>
-				<a href="#">Book For A Ride</a>
 			</div>
 		</nav>
 	</header>
     
-@section('footer')
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h4 class=" ">About Us</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla viverra, justo id ultricies vestibulum, est elit pharetra est, non efficitur velit metus nec velit.</p>
-                </div>
-                <div class="col-md-6">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li>Email: example@example.com</li>
-                        <li>Phone: +1 234 567 890</li>
-                        <li>Address: 123 Street, City, Country</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; 2024 Your Company. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="footer-links">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Use</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    
-		
-	</div><!-- Main Container -->
-	<!-- JQuery v1.11.3 -->
-	<script src="{{ asset('helps/js/jquery.min.js')}}"></script>
 
-	<!-- Library - Modernizer -->
-	<script src="{{ asset('helps/libraries/modernizr/modernizr.js')}}"></script>
-	
-	<!-- Library - Bootstrap v3.3.5 -->
-	<script src="{{ asset('helps/libraries/bootstrap/bootstrap.min.js')}}"></script><!-- Bootstrap JS File v3.3.5 -->
-	<script src="{{ asset('helps/libraries/bootstrap/bootstrap-datetimepicker.min.js')}}"></script><!-- Bootstrap JS File v3.3.5 -->
-	
-	<!-- jQuery Easing v1.3 -->
-	<script src="{{ asset('helps/js/jquery.easing.min.js') }}"></script>
-
-	<!-- Library - jQuery.appear -->
-	<script src="{{ asset('helps/libraries/appear/jquery.appear.js') }}"></script>
-	
-	<!-- Library - OWL Carousel V.2.0 beta -->
-	<script src="{{ asset('helps/libraries/owl-carousel/owl.carousel.min.js') }}"></script>
-	
-	<!-- jQuery For Number Counter -->	
-	<script src="{{ asset('helps/libraries/number/jquery.animateNumber.min.js') }}"></script>
-
-	<!-- Library - Google Map API -->
-	<script src="{{ asset('helps/https://maps.googleapis.com/maps/api/js?v=3.exp') }}"></script>
-	 
-	<!-- Library - FlexSlider v2.5.0 -->
-	<script defer src="{{ asset('helps/libraries/flexslider/jquery.flexslider.js') }}"></script>
-	
-	<!-- Library - Theme JS -->
-	<script src="{{ asset('helps/js/functions.js') }}"></script>
-</body>
-</html>
-
-    @endsection

@@ -40,9 +40,9 @@
         </div>
         <div>
             <select name="role" id="role">
-                <option value=""></option>
+                <option value="">Chose your role</option>
                 <option value="1">Passager</option>
-                <option value="2">Chauffeur</option>
+                <option value="2">Driver</option>
             </select>
         </div>
 

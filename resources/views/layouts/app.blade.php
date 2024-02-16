@@ -19,6 +19,7 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
+            
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
@@ -33,7 +34,8 @@
                 {{-- {{ $slot }} --}}
             </main>
         </div>
-                <script src="https://cdn.tailwindcss.com"></script>
+                {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     </body>
 </html>
+    

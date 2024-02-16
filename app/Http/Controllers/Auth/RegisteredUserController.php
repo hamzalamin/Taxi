@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'role' => ['required', 'in:1,2'],
         ]);
-        $role = ('role' == 1) ? 'passager' : 'chauffeur';
+        $role = ($request->role == 1) ? 'passager' : 'chauffeur';
 
         $user = User::create([
             'name' => $request->name,
@@ -44,8 +44,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
         $user->assignRole($role);
+
+        event(new Registered($user));
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

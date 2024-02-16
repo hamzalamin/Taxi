@@ -52,4 +52,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Chauffeur::class);
     }
+    public function driver()
+{
+    return $this->belongsTo(User::class, 'driver_id');
+}
+    public function isDriver()
+    {
+        return $this->chauffeur()->exists();
+    }
 }

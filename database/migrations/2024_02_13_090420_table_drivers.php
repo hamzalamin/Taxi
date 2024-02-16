@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('passengers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
+        //
+        Schema::table('drivers', function(Blueprint $table){
+            $table->boolean('status')->default(1);
         });
     }
 
@@ -24,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('passengers');
+        //
+        Schema::table('drivers', function(Blueprint $table){
+            $table->dropColumn('status');
+        });
     }
 };

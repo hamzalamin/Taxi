@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Chauffeur;
 use Illuminate\Http\Request;
+use Database\Seeders\chaufaur;
+use Illuminate\Support\Facades\Auth;
 
 class ChauffeurController extends Controller
 {
@@ -13,6 +15,8 @@ class ChauffeurController extends Controller
     public function index()
     {
         //
+        // return 'hi';
+        
     }
 
     /**
@@ -21,6 +25,7 @@ class ChauffeurController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -58,8 +63,28 @@ class ChauffeurController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Chauffeur $chauffeur)
+    public function informationOfDriver(Request $request)
     {
-        //
+        // Ensure that the user is authenticated
+        if (Auth::check()) {
+            $userId = Auth::id();
+                $validatedData = $request->validate([
+                'license_number' => 'required',
+                'car_model' => 'required',
+                'profile' => 'required',
+            ]);
+    
+            // Create a new Chauffeur record with the provided data and the user_id set to the authenticated user's ID
+            Chauffeur::create([
+                'license_number' => $validatedData['license_number'],
+                'car_model' => $validatedData['car_model'],
+                'profile' => $validatedData['profile'],
+                'user_id' => $userId, 
+            ]);
+    
+            return redirect()->back()->with('success', 'Chauffeur information saved successfully.');
+        } else {
+            return redirect()->route('login')->with('error', 'Please log in to continue.');
+        }
     }
 }

@@ -9,17 +9,19 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <script src="https://cdn.tailwindcss.com"></script>
+        {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class=" bg-gray-100">
              @include('layouts.navigation') 
-
-           {{-- <h1>fuck youuu</h1> --}}
+            {{-- @include('chauffeur.index') --}}
+        </div>
+        <div>
+            {{ $slot }}
         </div>
     </body>
 </html>

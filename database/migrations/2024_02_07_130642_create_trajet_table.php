@@ -12,10 +12,10 @@ class CreatetrajetTable extends Migration
         Schema::create('trajet', function (Blueprint $table) {
             $table->id();
             $table->foreignId('driver_id')->nullable()->constrained('drivers')->onDelete('cascade');
-            $table->foreignId('departure_city_id')->constrained('cities')->onDelete('cascade');
-            $table->foreignId('destination_city_id')->constrained('cities')->onDelete('cascade');
-            $table->string('car_type')->nullable();
-            $table->unsignedBigInteger('passenger_id')->nullable(); // New column to store the passenger ID
+            $table->foreignId('departure_city_id')->constrained('cities_models')->onDelete('cascade');
+            $table->foreignId('destination_city_id')->constrained('cities_models')->onDelete('cascade');
+            $table->string('TypeOfpayment')->default('Espèce');
+            // $table->unsignedBigInteger('passenger_id')->nullable(); // New column to store the passenger ID
             $table->timestamps();
         });
     }

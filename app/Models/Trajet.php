@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Trajet extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        // 'time_Of_Trajet',
+        'destination_city_id',
+        'departure_city_id',
+        'TypeOfpayment',
+        'driver_id',
+    ];
     protected $table = 'trajet';
 
     public function departureCity()
